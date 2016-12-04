@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Kabaddi Score Keeper</string>
+    <string name="text_a_team">Bangalore Bulls</string>
+    <string name="text_b_team">Bengal Tigers</string>
+    <string name="bt_text_point1">+1 point</string>
+    <string name="bt_text_point2">Iona</string>
+    <string name="bt_text_point3">Late entry penalty</string>
+    <string name="bt_text_point4">Captains Team out</string>
+    <string name="bt_text_foul">Foul</string>
+</resources>

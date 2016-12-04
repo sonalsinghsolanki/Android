@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <!--Application Heading and Question Headings -->
+    <string name="topic_quiz">World General Knowledge</string>
+    <string name="single_choice_heading">Single Choice Questions</string>
+    <string name="multiple_choice_heading">Multiple Choice Questions</string>
+    <string name="text_entry_heading">Text Entry Questions</string>
+    <!--Radio Group 1st question and respective answers -->
+    <string name="quest_1">1.Four Corners Monument is located in which of the following countries?</string>
+    <string name="opt1_quest1">United States</string>
+    <string name="opt2_quest1">Canada</string>
+    <string name="opt3_quest1">China</string>
+    <string name="opt4_quest1">Mexico</string>
+    <!--CheckBox group 2nd question and respective answers -->
+    <string name="quest_2">4.Who is the best player of Indian Cricket Team?</string>
+    <string name="opt1_quest2">Virat Kohli</string>
+    <string name="opt2_quest2">Mahendra Singh Dhoni</string>
+    <string name="opt3_quest2">Ajinkya Rahane</string>
+    <string name="opt4_quest2">Ashutosh Solanki</string>
+    <!--TextView 3rd question and respective answers -->
+    <string name="quest_3">5.Who was the music director of Slumdog Millionair movie?</string>
+    <string name="hint_ans_quest3">Type your answer here!</string>
+    <!--Radiobutton 4th question and respective answers -->
+    <string name="quest_4">2.Hoover Dam is built on which of the following rivers?</string>
+    <string name="opt1_quest4">Colorado</string>
+    <string name="opt2_quest4">Nile</string>
+    <string name="opt3_quest4">Rhine</string>
+    <string name="opt4_quest4">Niger</string>
+    <!--CheckBox group 5th question and respective answers -->
+    <string name="quest_5">3.Which countries play kabbadi?</string>
+    <string name="opt1_quest5">India</string>
+    <string name="opt2_quest5">Bangladesh</string>
+    <string name="opt3_quest5">Iran</string>
+    <string name="opt4_quest5">UK</string>
+    <!--Submit answers button -->
+    <string name="submit_answer">Submit</string>
+    <string name="score_heading">Quiz Score</string>
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Just Java</string>
+    <string name="add_chocolate" translatable="false">Añadir chocolate</string>
+    <string name="add_whipped_cream">Añadir crema batida</string>
+    <string name="but_order">Orden</string>
+    <string name="chk_chocolate">Chocolate</string>
+    <string name="order_email_subject">Sólo orden de Java</string>
+    <string name="order_quantity">Cantidad</string>
+    <string name="order_total">Total</string>
+    <string name="thank_you">¡Gracias! </string>
+    <string name="toast_max_limit">No puede tener más de 100 cafés </string>
+    <string name="toast_min_limit">No puedes tener menos de 1 café </string>
+    <string name="txt_name">Nombre </string>
+    <string name="txt_price">Resumen del pedido </string>
+    <string name="txt_quantity">Cantidad </string>
+    <string name="txt_toppings">coberturas </string>
+</resources>

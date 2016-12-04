@@ -1,0 +1,26 @@
+<resources xmlns:xliff = "urn:oasis:names:tc:xliff:document:1.2">
+    <!--aDD DESCTIPTION FOR EACH STRING SO THAT IT IS EASY FOR TRANSLATOR AS WELL AS MENTION THE FIELD SIZE -->
+    <string name="app_name">Just Java</string>
+    <string name="txt_quantity">Quantity</string>
+    <!--Header Text for the list of toppings [CHAR LIMIT 20] -->
+    <string name="txt_toppings">Toppings</string>
+    <string name="txt_quantity_number" translatable="false">0</string>
+    <string name="txt_price">Order Summary</string>
+    <string name="txt_price_number" translatable="false">0</string>
+    <string name="but_order">Order</string>
+    <string name="but_increment" translatable="false">+</string>
+    <string name="but_decrement" translatable="false">-</string>
+    <string name="txt_name">Name</string>
+    <string name="chk_whipped">Whipped Cream</string>
+    <string name="chk_chocolate">Chocolate</string>
+    <string name="thank_you">Thank you!</string>
+    <string name="order_total">Total</string>
+    <string name="add_chocolate">Add Chocolate</string>
+    <string name="add_whipped_cream">Add Whipped Cream</string>
+    <string name="order_quantity">Quantity</string>
+    <string name="toast_max_limit">You cannot have more than 100 coffees</string>
+    <string name="toast_min_limit">You cannot have less than 1 coffee</string>
+    <string name="order_email_subject">Just Java order for</string>
+    <string name="order_summary_name" translatable="false">Name: <xliff:g id="customerName" example="Amy">%s</xliff:g></string>
+
+</resources>
