@@ -30,4 +30,9 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
+
+    <!-- Style for a category of vocabulary words -->
+    <style name="NumbersActivityTextViewStyle">
+
+    </style>
 </resources>
