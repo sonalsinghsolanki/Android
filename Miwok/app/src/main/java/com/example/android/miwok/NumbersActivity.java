@@ -1,5 +1,7 @@
 package com.example.android.miwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,25 +13,52 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
     private MediaPlayer mMediaPlayer;
+    private AudioManager mAudioManager;
+    private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                // The AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
+                // short amount of time. The AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
+                // our app is allowed to continue playing sound but at a lower volume. We'll treat
+                // both cases the same way because our app is playing short sound files.
+
+                // Pause playback and reset player to the start of the file. That way, we can
+                // play the word from the beginning when we resume playback.
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                // The AUDIOFOCUS_GAIN case means we have regained focus and can resume playback.
+                mMediaPlayer.start();
+            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                // The AUDIOFOCUS_LOSS case means we've lost audio focus and
+                // Stop playback and clean up resources
+                releaseMediaPlayer();
+            }
+        }
+    };
+
+    /**
+     +     * This listener gets triggered when the {@link MediaPlayer} has completed
+     +     * playing the audio file.
+     +     */
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
+    /**
+     * This listener gets triggered whenever the audio focus changes
+     * (i.e., we gain or lose audio focus because of another app or device).
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
-        //Create an array of variable name words
-        /*String[] words = new String[10];
-        words[0] = "One";
-        words[1] = "Two";
-        words[2] = "Three";
-        words[3] = "Four";
-        words[4] = "Five";
-        words[5] = "Six";
-        words[6] = "Seven";
-        words[7] = "Eight";
-        words[8] = "Nine";
-        words[9] = "Ten";
-        Log.v("NumberActivity","Word at index[0] : "+words[0]);
-        Log.v("NumberActivity","Word at index[1] : "+words[1]);*/
-        //Create an arrayLists for object name words
+        mAudioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
 
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("one","lutti",R.drawable.number_one,R.raw.number_one));
@@ -45,42 +74,64 @@ public class NumbersActivity extends AppCompatActivity {
 
         WordAdapter adapter = new WordAdapter(this,words,R.color.category_numbers);
 
-       // ListView listView = (ListView) findViewById(R.id.list);
-       // GridView gridView = (GridView)findViewById(R.id.grid) ;
         ListView listView = (ListView) findViewById(R.id.list) ;
 
-        //gridView.setAdapter(itemsAdapter);
+
         listView.setAdapter(adapter);
+
 
         //set onclicklistner to play audio files
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-               Word word = words.get(position);
-               mMediaPlayer = MediaPlayer.create(NumbersActivity.this,word.getMediaPlayer());
-                mMediaPlayer.start();
 
+                releaseMediaPlayer();
+                Word word = words.get(position);
+
+               // Request audio focus for playback
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+                        // Use the music stream.
+                        AudioManager.STREAM_MUSIC,
+                        // Request permanent focus.
+                        AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                    // Start playback
+
+                    // Log.v("NumbersActivity","Current Word: " + word);
+                    mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getMediaPlayer());
+                    mMediaPlayer.start();
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                }
             }
         });
-        /*Log.v("NumberActivity","Word at index[0] : "+words.get(0));
-        Log.v("NumberActivity","Word at index[1] : "+words.get(1));*/
-        //Find the rootview for the layout to add text view
-        //LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
-        //setup the counter variable
-       /* int index = 0;
-        while(index < 10) {
-            //create a textview and add to rootview
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
-            rootView.addView(wordView);
-            //update the counter variable
-            index ++;
-        }*/
-        /*for(int index =0;index < 10;index++){
-            //create a textview and add to rootview
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
-            rootView.addView(wordView);
-        }*/
+    }
+
+
+
+
+    /**
+     * Clean up the media player by releasing its resources.
+     */
+    private void releaseMediaPlayer(){
+        // If the media player is not null, then it may be currently playing a sound.
+        if (mMediaPlayer != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mMediaPlayer.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mMediaPlayer = null;
+            // Abandon audio focus when playback complete
+            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
     }
 }

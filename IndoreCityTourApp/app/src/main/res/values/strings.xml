@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Indore City Tour App</string>
+    <string name="activity_history">Historical</string>
+    <string name="activity_museum">Museum</string>
+    <string name="activity_gardens">Gardens</string>
+    <string name="activity_zoo">Zoo</string>
+    <string name="activity_temples">Temples</string>
+</resources>

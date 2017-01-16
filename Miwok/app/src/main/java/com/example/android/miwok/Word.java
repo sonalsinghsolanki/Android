@@ -43,4 +43,13 @@ public class Word {
         return mMediaPlayer;
     }
 
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMediaPlayer=" + mMediaPlayer +
+                ", mImageResourceId=" + mImageResourceId +
+                '}';
+    }
 }
