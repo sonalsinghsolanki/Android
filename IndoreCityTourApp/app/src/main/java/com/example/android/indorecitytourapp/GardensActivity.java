@@ -25,7 +25,7 @@ public class GardensActivity extends AppCompatActivity {
         places.add(new Places("Atal Bihari Vajpayee Regional Park","Regional Park Indore is a park located in Indore, Madhya Pradesh." +
                 " The park was developed and created by Indore Development Authority and was opened in 2003.",R.drawable.atalbiharivajpayeeregionalpark_placename));
         //Create a adpater for Places object
-        PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_numbers);
+        PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_history);
         //Create a listview object and assign list id
         ListView listView = (ListView) findViewById(R.id.list) ;
         //Set adapter

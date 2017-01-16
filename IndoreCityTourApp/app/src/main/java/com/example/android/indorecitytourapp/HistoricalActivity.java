@@ -30,7 +30,7 @@ public class HistoricalActivity extends AppCompatActivity {
                 "During night, this park draws attention of numerous tourists," +
                 " as the chhatris are illuminated and the fountain at artificial lake starts operating.",R.drawable.chhatribagh_placename));
         //Create a adpater for Places object
-        PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_numbers);
+        PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_history);
         //Create a listview object and assign list id
         ListView listView = (ListView) findViewById(R.id.list) ;
         //Set adapter

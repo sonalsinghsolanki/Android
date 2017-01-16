@@ -29,7 +29,7 @@ public class TemplesActivity extends AppCompatActivity {
         places.add(new Places("Gajanan Maharaj Temple","The Gajanan Maharaj Temples were built to honor Shri Sant Gajanan Maharaj, " +
                 "a late-nineteenth–, early-twentieth-century Indian holy man known to many",R.drawable.gambhirbhavan_placename));
         //Create a adpater for Places object
-        PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_numbers);
+        PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_history);
         //Create a listview object and assign list id
         ListView listView = (ListView) findViewById(R.id.list) ;
         //Set adapter
