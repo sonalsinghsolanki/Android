@@ -2,38 +2,38 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="horizontal"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:padding="16dp"
-              android:background="@color/light_background"
-              android:minHeight="@dimen/list_item_height">
-     <ImageView
-        android:id="@+id/list_item_image"
-        android:layout_width="@dimen/list_item_height"
-        android:layout_height="@dimen/list_item_height"
-       />
-    <LinearLayout
-        android:id="@+id/text_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:background="@color/category_history">
-    <TextView
-        android:id="@+id/name_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-         />
-    <TextView
-        android:id="@+id/short_description_text_view"
-        tools:text="Palace,Monument,architecture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:tools="http://schemas.android.com/tools"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@color/light_background"
+                  android:minHeight="@dimen/list_item_height"
+                  android:orientation="horizontal"
+                  android:padding="16dp">
+        <ImageView
+            android:id="@+id/list_item_image"
+            android:layout_width="@dimen/list_item_height"
+            android:layout_height="@dimen/list_item_height"
+            />
+        <LinearLayout
+            android:id="@+id/text_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/category_history"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
+            <TextView
+                android:id="@+id/name_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/short_description_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Palace,Monument,architecture"
+                />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </ScrollView>

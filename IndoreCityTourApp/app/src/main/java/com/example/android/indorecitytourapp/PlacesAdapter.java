@@ -13,18 +13,32 @@ import java.util.ArrayList;
 /**
  * Created by Ashutosh on 12/21/2016.
  */
+
 public class PlacesAdapter extends ArrayAdapter<Places> {
+    /**
+     * Constructor for PlacesAdapter class
+     *
+     * @param mColorResourceId is an color of type int for every category
+     */
     private int mColorResourceId;
+
     public PlacesAdapter(Activity context, ArrayList<Places> places, int colorResourceId) {
-        super(context,0, places);
+        super(context, 0, places);
         mColorResourceId = colorResourceId;
     }
-
+    /**
+     * overide getView function
+     *
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
-        if(listItemView == null) {
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
@@ -34,6 +48,7 @@ public class PlacesAdapter extends ArrayAdapter<Places> {
 
         // Find the PlaceName TextView in the list_item.xml layout with the ID name_text_view
         TextView miwokTextView = (TextView) listItemView.findViewById(R.id.name_text_view);
+
         // Get the Place word from the current Places object and
         // set this text on the name TextView
         miwokTextView.setText(currentPlaces.getPlaceName());
@@ -47,29 +62,18 @@ public class PlacesAdapter extends ArrayAdapter<Places> {
         //Find the ImageView in the list_item.xml layout with the ID list_item_icon
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_image);
 
-        if(currentPlaces.hasImage()) {
+        if (currentPlaces.hasImage()) {
             // Get the image resource ID from the current AndroidFlavor object and
             // set the image to iconView
             iconView.setImageResource(currentPlaces.getImageResourceId());
             //shows the image
             iconView.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             //hides the image
             iconView.setVisibility(View.GONE);
         }
-
-
-        //set the theme color for the list view item
-       /* View textContainer = listItemView.findViewById(R.id.text_container);
-        //find the color that the resource id map to
-        int color = ContextCompat.getColor(getContext(),mColorResourceId);
-        //set background color of the text container view
-        textContainer.setBackgroundColor(color);*/
-
         // Return the whole list item layout (containing 2 TextViews )
         // so that it can be shown in the ListView
         return listItemView;
-
-
     }
 }

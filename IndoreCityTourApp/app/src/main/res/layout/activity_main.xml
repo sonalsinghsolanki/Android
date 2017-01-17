@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/light_background"
+    android:orientation="vertical"
     tools:context="com.example.android.indorecitytourapp.MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,8 +30,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:text="Indore"
         android:textAlignment="center"
         android:textSize="34sp"
@@ -45,35 +45,65 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
         android:layout_marginBottom="10dp"
-        android:text="Indore is a city in west-central India.It’s known for the 7-story Rajwada Palace and the Lal Baag Palace, which date back to Indore’s 19th-century Holkar dynasty. The Holkar rulers are honored by a cluster of tombs and cenotaphs at Chhatri Baag. The night market Sarafa Bazar sells street food. East is the Indo-Gothic Gandhi Hall and clock tower. The Jain temple Kanch Mandir has a mirrored mosaic interior."
+        android:layout_marginLeft="5dp"
+        android:text="@string/city_description"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:text="Places to Visit"
         android:textSize="16sp"
-        android:textStyle="bold"
-        android:text="Places to Visit"/>
-    <TextView
-        android:id="@+id/visit_historical"
-        style="@style/mainactivity_txtview_style"
-        android:text="@string/activity_history"/>
-    <TextView
-        android:id="@+id/visit_museum"
-        style="@style/mainactivity_txtview_style"
-        android:text="@string/activity_museum"/>
-    <TextView
-        android:id="@+id/visit_zoo"
-        style="@style/mainactivity_txtview_style"
-        android:text="@string/activity_zoo"/>
-    <TextView
-        android:id="@+id/visit_gardens"
-        style="@style/mainactivity_txtview_style"
-        android:text="@string/activity_gardens"/>
-    <TextView
-        android:id="@+id/visit_temples"
-        style="@style/mainactivity_txtview_style"
-        android:text="@string/activity_temples"/>
-   </LinearLayout>
+        android:textStyle="bold"/>
+    <RelativeLayout
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp">
+        <Button
+            android:id="@+id/showHistoricalPlaces"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:onClick="showHistoricalPlaces"
+            android:text="@string/activity_history"/>
+        <Button
+            android:id="@+id/showMuseum"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/showHistoricalPlaces"
+            android:layout_toRightOf="@+id/showHistoricalPlaces"
+            android:onClick="showMuseum"
+            android:text="@string/activity_museum"/>
+        <Button
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/showMuseum"
+            android:layout_toRightOf="@+id/showMuseum"
+            android:onClick="showGardens"
+            android:text="@string/activity_gardens"/>
+        <Button
+            android:id="@+id/button2"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showHistoricalPlaces"
+            android:onClick="showZoo"
+            android:text="@string/activity_zoo"/>
+        <Button
+            android:id="@+id/button"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/showMuseum"
+            android:layout_alignStart="@+id/showMuseum"
+            android:layout_alignTop="@+id/button2"
+            android:onClick="showTemples"
+            android:text="@string/activity_temples"/>
+    </RelativeLayout>
+</LinearLayout>

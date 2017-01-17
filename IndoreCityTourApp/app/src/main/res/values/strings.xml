@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Indore City Tour App</string>
+    <string name="city_description">Indore is a city in west-central India.It’s known for the 7-story Rajwada Palace and the Lal Baag Palace, which date back to Indore’s 19th-century Holkar dynasty. The Holkar rulers are honored by a cluster of tombs and cenotaphs at Chhatri Baag. The night market Sarafa Bazar sells street food. East is the Indo-Gothic Gandhi Hall and clock tower. The Jain temple Kanch Mandir has a mirrored mosaic interior.</string>
     <string name="activity_history">Historical</string>
     <string name="activity_museum">Museum</string>
     <string name="activity_gardens">Gardens</string>
     <string name="activity_zoo">Zoo</string>
     <string name="activity_temples">Temples</string>
-</resources>
+    </resources>
