@@ -14,16 +14,11 @@ public class GardensActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
         //Create array lists of object places
         final ArrayList<Places> places = new ArrayList<Places>();
-        places.add(new Places("Meghdoot Garden","Meghdoot Garden is one of the biggest and most beautiful parks in the city. " +
-                "It is also oldest gardens in Indore which is still in excellent shape.",R.drawable.meghdootgarden_placename));
-        places.add(new Places("Mayank Blue Water Park","Mayank Blue Water Park is one of the best spot to beat the heat over the weekend. " +
-                "Some of the slides at this Water Park are extremely cool.",R.drawable.mayankbluewaterpark_placename));
-        places.add(new Places("Krishna Puri Chhatri","Krishnapura Chhatris is an important architectural heritage of Indore." +
-                " Here are some interesting facts about the chhatris of Indore.",R.drawable.krishnapurichatri_placename));
-        places.add(new Places("Chhatri Bagh","Chhatri bagh is as the name suggests filled with such canopies. " +
-                "It was built in the remembrance of the Holkar Dynasty.",R.drawable.chhatribagh_placename));
-        places.add(new Places("Atal Bihari Vajpayee Regional Park","Regional Park Indore is a park located in Indore, Madhya Pradesh." +
-                " The park was developed and created by Indore Development Authority and was opened in 2003.",R.drawable.atalbiharivajpayeeregionalpark_placename));
+        places.add(new Places(getResources().getString(R.string.name_garden_meghdoot),getResources().getString(R.string.descp_meghdoot),R.drawable.meghdootgarden_placename));
+        places.add(new Places(getResources().getString(R.string.name_garden_mayank),getResources().getString(R.string.descp_mayankblue),R.drawable.mayankbluewaterpark_placename));
+        places.add(new Places(getResources().getString(R.string.name_garden_chhatribagh),getResources().getString(R.string.descp_chatri),R.drawable.chhatribagh_placename));
+        places.add(new Places(getResources().getString(R.string.name_garden_atb),getResources().getString(R.string.descp_atb),R.drawable.atalbiharivajpayeeregionalpark_placename));
+        places.add(new Places(getResources().getString(R.string.name_garden_krishnapuri),getResources().getString(R.string.descp_krishnapuri),R.drawable.krishnapurichatri_placename));
         //Create a adpater for Places object
         PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_history);
         //Create a listview object and assign list id
