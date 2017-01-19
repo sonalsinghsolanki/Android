@@ -6,4 +6,57 @@
     <string name="activity_gardens">Gardens</string>
     <string name="activity_zoo">Zoo</string>
     <string name="activity_temples">Temples</string>
-    </resources>
+    <!--Lists of gardens -->
+    <string name="descp_meghdoot">Meghdoot Garden","Meghdoot Garden is one of the biggest and most beautiful parks in the city.It is also oldest gardens in Indore which is still in excellent shape.</string>
+    <string name="descp_mayankblue">Mayank Blue Water Park is one of the best spot to beat the heat over the weekend.Some of the slides at this Water Park are extremely cool.</string>
+    <string name="descp_krishnapuri">Krishnapura Chhatris is an important architectural heritage of Indore.Here are some interesting facts about the chhatris of Indore.</string>
+    <string name="descp_chatri">Chhatri bagh is as the name suggests filled with such canopies.It was built in the remembrance of the Holkar Dynasty.</string>
+    <string name="descp_atb">Regional Park Indore is a park located in Indore, Madhya Pradesh.The park was developed and created by Indore Development Authority and was opened in 2003.</string>
+    <!-- Names of gardens -->
+    <string name="name_garden_meghdoot">Meghdoot Garden</string>
+    <string name="name_garden_mayank">Mayank Blue Water Park</string>
+    <string name="name_garden_krishnapuri">Krishna Puri Chhatri</string>
+    <string name="name_garden_chhatribagh">Chhatri Bagh</string>
+    <string name="name_garden_atb">Atal Bihari Vajpayee Regional Park</string>
+
+    <!--Lists of historical places -->
+    <string name="descp_rajwada">Rajwada is a historical palace in Indore city.It was built by the Holkars of the Maratha Empire about two centuries ago.</string>
+    <string name="descp_lalbagh">Lal Baag Palace was once the resident of the Holkars.Know more about Lal Bagh Palace in Indore, Madhya Pradesh</string>
+    <string name="descp_gommatgiri">A set of jain temples built on the top of Gommatesher Hill these Jain temples are 24 in number for each of the 24 Tirthankaras.</string>
+    <string name="descp_phootikothi">Historical landmark in Indore, India Nawa Bangla, Phooti Kothi.</string>
+    <string name="descp_ranisatigate">Historical landmark in Indore, India</string>
+    <string name="descp_krsihnachatri">Chhatri Bagh is one of the most popular tourist attractions in Indore,which is known for its permanent canopies. These canopies are built in the memory of the royal members of the Holkar Dynasty. Each chhatri is built on the burial site of the Holkar king or queen.The chhatri primarily comprises a dome shaped cenotaphs with pyramidal spires on the top.During night, this park draws attention of numerous tourists,as the chhatris are illuminated and the fountain at artificial lake starts operating."</string>
+    <!-- Names of Historical places -->
+    <string name="name_historical_rajwada">Rajwada</string>
+    <string name="name_historical_lalbagh">Lal Bagh Palace</string>
+    <string name="name_historical_gommat">Gommat Giri</string>
+    <string name="name_historical_phootikothi">Phooti Kothi</string>
+    <string name="name_historical_ranisatigate">Rani Sati Gate</string>
+    <string name="name_historical_krsihnapuri">Krishna Puri Chhatri</string>
+
+    <!--List of Museum -->
+    <string name="descp_indoremuseum">Central Museum in Indore is of great significance historically.Know more about Indore Museum of India.</string>
+    <string name="descp_lalbaghmuseum">Lal Bagh Museum is a palace/museum located in the city of Indore, Madya Pradesh.Lal Bhag Museum entails the conservation and restoration of a late ...</string>
+    <!--Names of Museums -->
+    <string name="name_museum_indore">Indore Museam</string>
+    <string name="name_museum_lalbagh">Lal Bagh Museum</string>
+    <!--List of Temples -->
+    <string name="descp_khajrana">Khajrana Ganesh Temple is one of the Famous Hindu Temple.This Indian Temple is dedicated to Vinayak</string>
+    <string name="descp_kanchtemple">The Kanch Mahal is one of the main tourist attractions in Indore.The Kanch Mandir, as the name suggests, is a temple which is entirely made up of glass and mirrors.It is primarily a Jain temple and is a wonder in glass.</string>
+    <string name="descp_annpurna">Annapurna Mandir is a popular temple, which is dedicated to the Goddess Annapurna.It is one of the famous pilgrimage sites in Indore.</string>
+    <string name="descp_iskon">Our Temple invites the public to join us for a day of spirutual contemplation.</string>
+    <string name="descp_ranjeet">"Ranjeet Hanuman Mandir Hanuman Temple"</string>
+    <string name="descp_gajanan">The Gajanan Maharaj Temples were built to honor Shri Sant Gajanan Maharaj,a late-nineteenth–, early-twentieth-century Indian holy man known to many</string>
+    <!--Name of Temples -->
+    <string name="name_temple_khajrana">Shri Khajrana Ganesh Temple</string>
+    <string name="name_temple_kanch">Kanch Mandir</string>
+    <string name="name_temple_annpurna">Annapurna Mandir</string>
+    <string name="name_temple_iskon">ISKCON</string>
+    <string name="name_temple_ranjeet">Ranjeet Hanuman Mandir</string>
+    <string name="name_temple_gajana">Gajanan Maharaj Temple</string>
+    <!-- List of Zoo -->
+    <string name="descp_kamlanehru">Kamla Nehru Prani Sangrahalaya or Indore Zoo is a zoological garden located in Navlakha,Indore is fully owned and managed by Indore Municipal</string>
+    <!--Zoo names -->
+    <string name="name_zoo_kamlanehru">Kamla Nehru Prani Sangrahalay</string>
+
+</resources>

@@ -14,11 +14,8 @@ public class MuseumActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
         //Create array lists of object places
         final ArrayList<Places> places = new ArrayList<Places>();
-        places.add(new Places("Indore Museam","Central Museum in Indore is of great significance historically." +
-                " Know more about Indore Museum of India.",R.drawable.indoremuseum_placename));
-        places.add(new Places("Lal Bagh Museum","Lal Bagh Museum is a palace/museum located in the city of Indore, Madya Pradesh. " +
-                "Lal Bhag Museum entails the conservation and restoration of a late ...",R.drawable.lalbaghmuseum_placename));
-        //Create a adpater for Places object
+        places.add(new Places(getResources().getString(R.string.name_museum_indore),getResources().getString(R.string.descp_indoremuseum),R.drawable.indoremuseum_placename));
+        places.add(new Places(getResources().getString(R.string.name_museum_lalbagh),getResources().getString(R.string.descp_lalbaghmuseum),R.drawable.lalbaghmuseum_placename));//Create a adpater for Places object
         PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_history);
         //Create a listview object and assign list id
         ListView listView = (ListView) findViewById(R.id.list) ;

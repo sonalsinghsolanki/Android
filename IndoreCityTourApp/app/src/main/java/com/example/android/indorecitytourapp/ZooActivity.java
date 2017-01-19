@@ -15,8 +15,7 @@ public class ZooActivity extends AppCompatActivity {
         //Create array lists of object places
         final ArrayList<Places> places = new ArrayList<Places>();
 
-        places.add(new Places("Kamla Nehru Prani Sangrahalay","Kamla Nehru Prani Sangrahalaya or Indore Zoo is a zoological garden located in Navlakha, " +
-                "Indore is fully owned and managed by Indore Municipal",R.drawable.kamlanehruzoo_placename));
+        places.add(new Places(getResources().getString(R.string.name_zoo_kamlanehru),getResources().getString(R.string.descp_kamlanehru),R.drawable.kamlanehruzoo_placename));
         //Create a adpater for Places object
         PlacesAdapter adapter = new PlacesAdapter(this,places,R.color.category_history);
         //Create a listview object and assign list id
