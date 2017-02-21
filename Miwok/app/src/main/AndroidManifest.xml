@@ -30,19 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".NumbersActivity"
-            android:label="@string/category_numbers">
-        </activity>
-        <activity android:name=".PhrasesActivity"
-                  android:label="@string/category_phrases" >
-
-        </activity>
-        <activity android:name=".FamilyActivity"
-                  android:label="@string/category_family">
-        </activity>
-        <activity android:name=".ColorsActivity"
-                  android:label="@string/category_colors">
-        </activity>
     </application>
 
 </manifest>

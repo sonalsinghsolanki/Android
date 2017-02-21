@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<manifest package="com.example.android.indorecitytourapp"
+<manifest package="com.example.android.miwok"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
@@ -23,25 +23,45 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.android.indorecitytourapp.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.example.android.indorecitytourapp.NumbersActivity"
-            android:label="@string/category_numbers">
+        <activity android:name=".NumbersActivity"
+            android:label="@string/category_numbers"
+            android:parentActivityName="com.example.android.miwok.MainActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.miwok.MainActivity"/>
         </activity>
-        <activity android:name="com.example.android.indorecitytourapp.PhrasesActivity"
-                  android:label="@string/category_phrases" >
+        <activity android:name=".PhrasesActivity"
+                  android:label="@string/category_phrases"
+                  android:parentActivityName="com.example.android.miwok.MainActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.miwok.MainActivity"/>
 
         </activity>
-        <activity android:name="com.example.android.indorecitytourapp.FamilyActivity"
-                  android:label="@string/category_family">
+        <activity android:name=".FamilyActivity"
+                  android:label="@string/category_family"
+                  android:parentActivityName="com.example.android.miwok.MainActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.miwok.MainActivity"/>
         </activity>
-        <activity android:name="com.example.android.indorecitytourapp.ColorsActivity"
-                  android:label="@string/category_colors">
+        <activity android:name=".ColorsActivity"
+                  android:label="@string/category_colors"
+                  android:parentActivityName="com.example.android.miwok.MainActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.android.miwok.MainActivity"/>
         </activity>
     </application>
 
