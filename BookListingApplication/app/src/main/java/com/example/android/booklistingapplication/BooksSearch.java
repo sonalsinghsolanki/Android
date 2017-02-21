@@ -28,4 +28,10 @@ public class BooksSearch extends AppCompatActivity {
         //Fire that second activity
         startActivity(i);
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        setContentView(R.layout.activity_search);
+    }
 }
