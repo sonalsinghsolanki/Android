@@ -38,7 +38,7 @@ public final class QueryUtils {
     private QueryUtils() {
     }
     /**
-     * Query the USGS dataset and return a list of {@link Books} objects.
+     * Query the Google Books API dataset and return a list of {@link Books} objects.
      */
     public static List<Books> fetchBooksData(String requestUrl) {
         // Create URL object

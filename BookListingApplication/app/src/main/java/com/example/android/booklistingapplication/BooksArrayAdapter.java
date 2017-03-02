@@ -56,7 +56,7 @@ public class BooksArrayAdapter extends ArrayAdapter<Books> {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
-        // Get the {@link AndroidFlavor} object located at this position in the list
+        // Get the {@link currentBook} object located at this position in the list
         Books currentBook = getItem(position);
         //Get the current book name
             TextView bookName = (TextView) listItemView.findViewById(R.id.title);
