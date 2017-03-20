@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Name for the application [CHAR LIMIT=12] -->
+    <string name="app_name">Habit Tracker Application</string>
+
+    <!-- Label for overflow menu option that inserts fake habit data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all habit data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All habits</string>
+
+    <!-- Title for the activity to add a new habit [CHAR LIMIT=20] -->
+    <string name="editor_activity_title_new_habit">Add a habit</string>
+
+    <!-- Label for editor menu option to save habit and leave editor [CHAR LIMIT=20] -->
+    <string name="action_save">Save</string>
+
+    <!-- Label for editor overflow menu option that deletes the current habit [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete</string>
+
+    <!-- Label for overview category of attributes in the editor [CHAR LIMIT=30] -->
+    <string name="category_overview">Overview</string>
+
+    <!-- Label for habit category information in the editor [CHAR LIMIT=30] -->
+    <string name="category_habit">Habit Category</string>
+
+    <!-- Label for Days information in the editor [CHAR LIMIT=30] -->
+    <string name="category_days">Days needed to complete</string>
+
+    <!-- Text hint for name field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_habit_name">Name</string>
+
+    <!-- Text hint for habit description in the editor [CHAR LIMIT=30] -->
+    <string name="hint_habit_description">Short Description</string>
+
+    <!-- Text hint for days field in the editor [CHAR LIMIT=30] -->
+    <string name="hint_habit_days">Days to complete</string>
+
+
+    <!-- Label for dropdown menu option if the habit's category is unknown [CHAR LIMIT=20] -->
+    <string name="habit_category_unknown">Unknown</string>
+
+    <!-- Label for dropdown menu option if the habit is fitness [CHAR LIMIT=20] -->
+    <string name="habit_category_fitness">Fitness</string>
+
+    <!-- Label for dropdown menu option if the habit is Self Improvement [CHAR LIMIT=20] -->
+    <string name="habit_category_selfimprovement">Self Improvement</string>
+
+    <!-- Label for dropdown menu option if the habit is Eating habits [CHAR LIMIT=20] -->
+    <string name="habit_category_eating">Healthy Eating</string>
+
+</resources>
