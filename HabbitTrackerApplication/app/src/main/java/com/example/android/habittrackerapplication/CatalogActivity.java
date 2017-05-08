@@ -69,7 +69,7 @@ public class CatalogActivity extends AppCompatActivity {
      * Temporary helper method to display information in the onscreen TextView about the state of
      * the habit database.
      */
-    private void displayDatabaseInfo() {
+    private Cursor getDatabaseInfo() {
         // Create and/or open a database to read from it
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
@@ -96,6 +96,12 @@ public class CatalogActivity extends AppCompatActivity {
                 null,                                     // don't filter by row groups
                 sortOrder                                 // The sort order
         );
+        return cursor;
+    }
+
+    private void displayDatabaseInfo(){
+        Cursor currentCursor=getDatabaseInfo();
+
         TextView displayView = (TextView) findViewById(R.id.text_view_habit);
 
         try {
@@ -106,7 +112,7 @@ public class CatalogActivity extends AppCompatActivity {
             //
             // In the while loop below, iterate through the rows of the cursor and display
             // the information from each column in this order.
-            displayView.setText("The habit table contains " + cursor.getCount() + " habits.\n\n");
+            displayView.setText("The habit table contains " + currentCursor.getCount() + " habits.\n\n");
             displayView.append(HabitEntry._ID + " - " +
                     HabitEntry.COLUMN_HABIT_NAME + " - " +
                     HabitEntry.COLUMN_HABIT_DESCRIPTION + " - " +
@@ -114,21 +120,21 @@ public class CatalogActivity extends AppCompatActivity {
                     HabitEntry.COLUMN_HABIT_NO_OF_DAYS + "\n");
 
             // Figure out the index of each column
-            int idColumnIndex = cursor.getColumnIndex(HabitEntry._ID);
-            int nameColumnIndex = cursor.getColumnIndex(HabitEntry.COLUMN_HABIT_NAME);
-            int sDescriptionColumnIndex = cursor.getColumnIndex(HabitEntry.COLUMN_HABIT_DESCRIPTION);
-            int categoryColumnIndex = cursor.getColumnIndex(HabitEntry.COLUMN_HABIT_CATEGORY);
-            int daysColumnIndex = cursor.getColumnIndex(HabitEntry.COLUMN_HABIT_NO_OF_DAYS);
+            int idColumnIndex = currentCursor.getColumnIndex(HabitEntry._ID);
+            int nameColumnIndex = currentCursor.getColumnIndex(HabitEntry.COLUMN_HABIT_NAME);
+            int sDescriptionColumnIndex = currentCursor.getColumnIndex(HabitEntry.COLUMN_HABIT_DESCRIPTION);
+            int categoryColumnIndex = currentCursor.getColumnIndex(HabitEntry.COLUMN_HABIT_CATEGORY);
+            int daysColumnIndex = currentCursor.getColumnIndex(HabitEntry.COLUMN_HABIT_NO_OF_DAYS);
 
             // Iterate through all the returned rows in the cursor
-            while (cursor.moveToNext()) {
+            while (currentCursor.moveToNext()) {
                 // Use that index to extract the String or Int value of the word
                 // at the current row the cursor is on.
-                int currentID = cursor.getInt(idColumnIndex);
-                String currentName = cursor.getString(nameColumnIndex);
-                String currentDescription = cursor.getString(sDescriptionColumnIndex);
-                int currentCategory = cursor.getInt(categoryColumnIndex);
-                int currentDay = cursor.getInt(daysColumnIndex);
+                int currentID = currentCursor.getInt(idColumnIndex);
+                String currentName = currentCursor.getString(nameColumnIndex);
+                String currentDescription = currentCursor.getString(sDescriptionColumnIndex);
+                int currentCategory = currentCursor.getInt(categoryColumnIndex);
+                int currentDay = currentCursor.getInt(daysColumnIndex);
                 // Display the values from each column of the current row in the cursor in the TextView
                 displayView.append(("\n" + currentID + " - " +
                         currentName + " - " +
@@ -139,7 +145,7 @@ public class CatalogActivity extends AppCompatActivity {
         } finally {
             // Always close the cursor when you're done reading from it. This releases all its
             // resources and makes it invalid.
-            cursor.close();
+            currentCursor.close();
         }
     }
 

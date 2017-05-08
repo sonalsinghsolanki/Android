@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyShareImageExample</string>
+    <string name="action_sendmail">Send Mail</string>
+</resources>
