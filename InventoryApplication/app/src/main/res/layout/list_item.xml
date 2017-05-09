@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Layout for a single list item in the list of products -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/activity_margin">
-
+        <!--Label for name of the product -->
         <TextView
             android:id="@+id/label_name"
             android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
             android:textColor="#2B3D4D"
             android:text="@string/label_product_name"
             android:textIsSelectable="false"/>
-
+        <!--Label for current quantity of the product -->
         <TextView
             android:id="@+id/label_quantity"
             android:layout_width="wrap_content"
@@ -30,6 +30,7 @@
             android:textColor="#2B3D4D"
             android:text="@string/label_product_quantity"
             android:textIsSelectable="false"/>
+        <!--Label for Price of the product -->
         <TextView
             android:id="@+id/label_price"
             android:layout_width="wrap_content"
@@ -39,47 +40,47 @@
             android:textColor="#2B3D4D"
             android:text="@string/label_product_price"
             android:textIsSelectable="false"/>
-
     </LinearLayout>
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_margin">
-
-    <TextView
-        android:id="@+id/name"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:textAppearance="?android:textAppearanceSmall"
-        android:textColor="#2B3D4D"
-        android:textIsSelectable="false"/>
-
-    <TextView
-        android:id="@+id/quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:textAppearance="?android:textAppearanceSmall"
-        android:textColor="#AEB6BD"
-        android:textIsSelectable="false"/>
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:textAppearance="?android:textAppearanceSmall"
-        android:textColor="#AEB6BD"
-        android:textIsSelectable="false"/>
-    <Button
-        android:id="@+id/bt_sold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bt_sale"
-        android:focusable="false"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_margin">
+        <!--Textview for name of the product -->
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#2B3D4D"
+            android:textIsSelectable="false"/>
+        <!--Textview for current quantity of the product -->
+        <TextView
+            android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#AEB6BD"
+            android:textIsSelectable="false"/>
+        <!--Textview for price of the product -->
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:textColor="#AEB6BD"
+            android:textIsSelectable="false"/>
+        <!--Button for sale of the product -->
+        <Button
+            android:id="@+id/bt_sold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bt_sale"
+            android:focusable="false"
             />
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -17,7 +17,6 @@ package com.example.android.inventoryapplication;
 
 import android.app.LoaderManager;
 import android.content.ContentUris;
-import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
@@ -106,27 +105,6 @@ public class CatalogActivity extends AppCompatActivity implements
         getLoaderManager().initLoader(PRODUCT_LOADER, null, this);
     }
 
-    /**
-     * Helper method to insert hardcoded product data into the database. For debugging purposes only.
-     */
-    private void insertProduct() {
-        // Create a ContentValues object where column names are the keys,
-        // and Olay Cream a product attributes are the values.
-        ContentValues values = new ContentValues();
-        values.put(ProductEntry.COLUMN_PRODUCT_NAME, "Olay Age Defieying Cream");
-        values.put(COLUMN_PRODUCT_QUANTITY, 4);
-        values.put(ProductEntry.COLUMN_PRODUCT_PRICE, 700);
-        values.put(ProductEntry.COLUMN_PRODUCT_SOLD_QUANTITY, 2);
-        values.put(ProductEntry.COLUMN_PRODUCT_SUPPLIER_NAME,"Arnav Enterprise");
-        values.put(ProductEntry.COLUMN_PRODUCT_SUPPLIER_EMAIL_ADDRESS,"arnavsolanki@gte.com");
-        values.put(ProductEntry.COLUMN_PRODUCT_IMAGE,"");
-
-        // Insert a new row for Olay Cream into the provider using the ContentResolver.
-        // Use the {@link ProductEntry#CONTENT_URI} to indicate that we want to insert
-        // into the products database table.
-        // Receive the new content URI that will allow us to access Olay Cream data in the future.
-        Uri newUri = getContentResolver().insert(ProductEntry.CONTENT_URI, values);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -140,10 +118,6 @@ public class CatalogActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
-            // Respond to a click on the "Insert dummy data" menu option
-            case R.id.action_insert_dummy_data:
-                insertProduct();
-                return true;
             // Respond to a click on the "Delete all entries" menu option
             case R.id.action_delete_all_entries:
                 deleteAllProducts();

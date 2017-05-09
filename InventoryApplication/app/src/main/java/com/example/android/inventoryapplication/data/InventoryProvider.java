@@ -37,8 +37,6 @@ public class InventoryProvider extends ContentProvider {
     /*Database helper object*/
     private InventoryDbHelper mDbHelper;
 
-
-
     /**
      * Initialize the provider and the database helper object.
      */

@@ -49,7 +49,6 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
         // Execute the SQL statement
         db.execSQL(SQL_CREATE_PRODUCTS_TABLE);
     }
-
     /**
      * This is called when the database needs to be upgraded.
      */

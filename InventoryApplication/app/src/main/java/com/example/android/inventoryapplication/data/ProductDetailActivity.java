@@ -8,9 +8,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +24,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.inventoryapplication.R;
+
+import java.io.FileDescriptor;
+import java.io.IOException;
 
 import static com.example.android.inventoryapplication.data.InventoryContract.ProductEntry.COLUMN_PRODUCT_QUANTITY;
 import static com.example.android.inventoryapplication.data.InventoryContract.ProductEntry.COLUMN_PRODUCT_SOLD_QUANTITY;
@@ -60,9 +67,9 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
     /**ImageView field for the product Image*/
     private ImageView mProductImageView;
 
-    /**Image Uri for reteriving product image from database*/
-    private String mProductImageUri;
+    private static final String LOG_TAG = ProductDetailActivity.class.getSimpleName();
 
+    private Bitmap mBitmap;
     /**
      * OnTouchListener that listens for any user touches on a View, implying that they are modifying
      * the view, and we change the mProductHasChanged boolean to true.
@@ -75,8 +82,6 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
         }
     };
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,8 +93,8 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
         mCurrentProductUri = intent.getData();
 
         // Initialize a loader to read the product data from the database
-            // and display the current values in the editor
-          getLoaderManager().initLoader(EXISTING_PRODUCT_LOADER, null, this);
+        // and display the current values in the editor
+        getLoaderManager().initLoader(EXISTING_PRODUCT_LOADER, null, this);
 
         // Find all relevant views that we will need to read user input from
         mNameTextView = (TextView) findViewById(R.id.name);
@@ -99,6 +104,9 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
         mSupplierNameTextView = (TextView) findViewById(R.id.supplier_name);
         mSupplierEmailTextView = (TextView) findViewById(R.id.supplier_emailid);
         mProductImageView =(ImageView)findViewById(R.id.product_image);
+
+        mBitmap = getBitmapFromUri(mCurrentProductUri);
+        mProductImageView.setImageBitmap(mBitmap);
 
         //Sell button click
         Button bt_sale = (Button)findViewById(R.id.bt_sale);
@@ -154,17 +162,18 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
                 intent.putExtra(Intent.EXTRA_SUBJECT,"Reorder Request");
                 intent.putExtra(Intent.EXTRA_TEXT, message);
                 startActivity(intent);
-                }
+            }
             private String createSupplierRequest(String supplier, String item){
-                String emailMessage = "Hello " + supplier + ","
-                        + "\n\nIt looks like we are running low on " + item
-                        + " and would like to reorder more."
-                        + "\nRegards,"
-                        +"\nShubham Store Co.";
+                String emailMessage = getString(R.string.hello_message)+ supplier + ","
+                        + "\n\n"+getString(R.string.message_1) + item
+                        + getString(R.string.message_2)
+                        + "\n"+getString(R.string.message_3)
+                        +"\n"+getString(R.string.message_4);
                 return emailMessage;
             }
         });
-         Button bt_delete = (Button)findViewById(R.id.bt_delete);
+        //Button to Delete the product
+        Button bt_delete = (Button)findViewById(R.id.bt_delete);
         bt_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,6 +181,7 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
             }
         });
 
+        //Button to modify current quantity
         Button bt_modify_quantity = (Button)findViewById(R.id.bt_update_quantity);
         bt_modify_quantity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,17 +194,79 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
                 if (rowsAffected == 0)
                 {
                     Toast.makeText(ProductDetailActivity.this, "Quantity cannot be updated.", Toast.LENGTH_SHORT).show();
-                                }else {
+                }else {
                     Toast.makeText(ProductDetailActivity.this, "Quantity updated.", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
-
-
-        }
         });
+
+        //Button to increase current quantity by 1
+        Button bt_increase_quantity = (Button)findViewById(R.id.bt_increase_quantity);
+        bt_increase_quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int increaseCurrentQuantity = Integer.parseInt(mQuantityEditText.getText().toString());
+                increaseCurrentQuantity=increaseCurrentQuantity+1;
+                ContentValues values = new ContentValues();
+                values.put(COLUMN_PRODUCT_QUANTITY, increaseCurrentQuantity);
+                int rowsAffected = getContentResolver().update(mCurrentProductUri, values, null, null);
+                if (rowsAffected == 0)
+                {
+                    Toast.makeText(ProductDetailActivity.this, "Quantity cannot be updated.", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(ProductDetailActivity.this, "Quantity updated.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //Button to decrease current quantity by 1
+        Button bt_decrease_quantity = (Button)findViewById(R.id.bt_decrease_quantity);
+        bt_decrease_quantity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int decreaseCurrentQuantity = Integer.parseInt(mQuantityEditText.getText().toString());
+                decreaseCurrentQuantity=decreaseCurrentQuantity-1;
+                ContentValues values = new ContentValues();
+                values.put(COLUMN_PRODUCT_QUANTITY, decreaseCurrentQuantity);
+                int rowsAffected = getContentResolver().update(mCurrentProductUri, values, null, null);
+                if (rowsAffected == 0)
+                {
+                    Toast.makeText(ProductDetailActivity.this, "Quantity cannot be updated.", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(ProductDetailActivity.this, "Quantity updated.", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
     }
 
+    private Bitmap getBitmapFromUri(Uri uri) {
+        ParcelFileDescriptor parcelFileDescriptor = null;
+        try {
+            parcelFileDescriptor =
+                    getContentResolver().openFileDescriptor(uri, "r");
+            FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+            Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+            parcelFileDescriptor.close();
+            return image;
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "Failed to load image.", e);
+            return null;
+        } finally {
+            try {
+                if (parcelFileDescriptor != null) {
+                    parcelFileDescriptor.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e(LOG_TAG, "Error closing ParcelFile Descriptor");
+            }
+        }
+    }
 
-     /**
+    /**
      * This method is called when the back button is pressed.
      */
     @Override
@@ -204,7 +276,6 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
             super.onBackPressed();
             return;
         }
-
     }
 
     @Override
@@ -258,6 +329,8 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
             String supplier_name = cursor.getString(supplierNameColumnIndex);
             String supplier_emailid = cursor.getString(supplierNameEmailidColumnIndex);
             String product_image = cursor.getString(productImageColumnIndex);
+            mBitmap=getBitmapFromUri(Uri.parse(product_image));
+
 
             // Update the views on the screen with the values from the database
             mNameTextView.setText(name);
@@ -266,7 +339,7 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
             mSoldQuantityTextView.setText(Integer.toString(sold_quantity));
             mSupplierNameTextView.setText(supplier_name);
             mSupplierEmailTextView.setText(supplier_emailid);
-            mProductImageView.setImageURI(product_image);
+            mProductImageView.setImageBitmap(mBitmap);
         }
     }
 
@@ -279,6 +352,7 @@ public class ProductDetailActivity extends AppCompatActivity implements LoaderMa
         mSoldQuantityTextView.setText("");
         mSupplierNameTextView.setText("");
         mSupplierEmailTextView.setText("");
+        mProductImageView.setImageBitmap(mBitmap);
     }
 
 

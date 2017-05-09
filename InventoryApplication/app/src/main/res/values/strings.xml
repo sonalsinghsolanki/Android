@@ -119,6 +119,13 @@
 
     <!-- Label for product image on product detail page -->
     <string name="label_product_image">Product Image</string>
+    
+    <!-- String value for email message to supplier -->
+    <string name="hello_message">"Hello " </string>
+    <string name="message_1">"It looks like we are running low on "</string>
+    <string name="message_2">" and would like to reorder more."</string>
+    <string name="message_3">"Regards,"</string>
+    <string name="message_4">"Shubham Store Co."</string>
 
 
 

@@ -36,7 +36,7 @@ public final class InventoryContract {
      * looking at product data. content://com.example.android.inventoryapplication/staff/ will fail,
      * as the ContentProvider hasn't been given any information on what to do with "staff".
      */
-        public static final String PATH_PRODUCTS = "products";
+    public static final String PATH_PRODUCTS = "products";
 
 
     /**
@@ -111,7 +111,6 @@ public final class InventoryContract {
          * Type: STRING
          */
         public final static String COLUMN_PRODUCT_SUPPLIER_EMAIL_ADDRESS = "prod_supplier_emailid";
-
         /**
          * Image of the product.
          * Type String
