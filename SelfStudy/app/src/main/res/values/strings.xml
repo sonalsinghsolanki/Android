@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SelfStudy</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_free_trial">Your free trial expired on 29th Jan 2019 please upgrade now to get
+    full access.</string>
+    <string name="bt_upgrade_now">UPGRADE NOW</string>
+    <string name="tv_heading_subjects">Subjects</string>
+    <string name="tv_mental_ability">Mental Abitlity</string>
+    <string name="tv_physics">Physics</string>
+    <string name="tv_chemistry">Chemistry</string>
+    <string name="tv_maths">Mathematics</string>
+    <string name="tv_biology">Biology</string>
+    <string name="tv_progress">Progress</string>
+</resources>
