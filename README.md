@@ -14,3 +14,5 @@ android:layout_alignParentRight="true" while viewgroup is Relative layout.
 List of places in a particular activity uses array lists to store data in array, uses adapter and list view to display contents of array lists as per layout defined for listview.
 
 6.InventoryApplication:This app is used to add ,delete ,update and display products in an store. Uses loaders(deprecated from API 28) to load data on separate thread to avoid unresponsive	behavior of an activity if loaded directly in activity.Uses concept of Content Provider manages access to a central repository of data by itself, stored by other apps, and provide a way to share data with other apps.They encapsulate the data, and provide mechanisms for defining data security. 
+
+7.JustJava:This app is an ordering app which takes order from customer and on submit send a. Confirmation email to customer for order placed with order details.App uses concept of Intent wherein action mentioned as a parameter for intent uses appropriate installed app to perform further action like email services of gmail or ask user to install appropriate apps to support further action.
