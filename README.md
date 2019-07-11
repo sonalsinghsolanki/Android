@@ -16,3 +16,9 @@ List of places in a particular activity uses array lists to store data in array,
 6.InventoryApplication:This app is used to add ,delete ,update and display products in an store. Uses loaders(deprecated from API 28) to load data on separate thread to avoid unresponsive	behavior of an activity if loaded directly in activity.Uses concept of Content Provider manages access to a central repository of data by itself, stored by other apps, and provide a way to share data with other apps.They encapsulate the data, and provide mechanisms for defining data security. 
 
 7.JustJava:This app is an ordering app which takes order from customer and on submit send a. Confirmation email to customer for order placed with order details.App uses concept of Intent wherein action mentioned as a parameter for intent uses appropriate installed app to perform further action like email services of gmail or ask user to install appropriate apps to support further action.
+
+8.KabbadiScoreKeeper: This app is designed for keeping track of points scored by two teams in kabbadi game ,it also tracks foul as well option to reset the game.It is designed on concept of onclick event of a button.
+
+9.LifecycleActivity:This is a simple app to learn about lifecycle of an activity.
+
+10.Miwok:This is a new language learning app for eg Miwok .Onclick on particular word or sentence, audio is available for ir.The concept behind this implementation used are Viewpager and Tabular Layout to navigate from tab or categories to another on home page ie from numbers to colors, etc.A single activity is used with different Fragments having single layout file.
