@@ -29,8 +29,9 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
 
     public static final String LOG_TAG = ArticlesActivity.class.getName();
     /** URL for articles data from the Gaurdian API */
-    private static  String mUrl =
-            "http://content.guardianapis.com/search?q=";
+   /* private static  String mUrl =
+            "http://content.guardianapis.com/search?q=";*/
+    private static  String mUrl = "https://www.googleapis.com/customsearch/v1?key=AIzaSyBLsLKgDtlPU72MZnJjMriMsDuO6FqF5qc&cx=006025631361902010286:yjep2_bxety&q=";
     public static  String mApiKey="&api-key=test";
     /** Adapter for the list of articles */
     private ArticlesArrayAdapter mAdapter;
@@ -50,7 +51,8 @@ public class ArticlesActivity extends AppCompatActivity implements LoaderManager
         String search_str = bundle.getString("search");
 
         //Add search string into URL
-        mUrl = mUrl+search_str+mApiKey;
+       // mUrl = mUrl+search_str+mApiKey;
+        mUrl = mUrl+search_str;
 
         // Find a reference to the {@link ListView} in the layout
         ListView articlesListView = (ListView) findViewById(R.id.list);
